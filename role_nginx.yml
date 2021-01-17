@@ -1,0 +1,6 @@
+---
+- host: web
+  remote_user: root
+
+  roles:
+    - nginx
