@@ -1,5 +1,5 @@
 ---
-- host: web
+- hosts: web
   remote_user: root
 
   roles:
