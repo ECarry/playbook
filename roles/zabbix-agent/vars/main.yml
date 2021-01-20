@@ -4,7 +4,7 @@
 # Mandatory: no
 # Default:
 # PidFile=/tmp/zabbix_agentd.pid
-PidFile: /tmp/zabbix_agentd.pid
+PidFile: /var/run/zabbix/zabbix_agentd.pid
 
 ### Option: LogFile
 #       Log file name for LogType 'file' parameter.
