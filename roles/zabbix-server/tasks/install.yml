@@ -4,10 +4,10 @@
   shell: yum clean all
 
 - name: install zabbix-server-mysql zabbix-agent
-  yum: name=zabbix-server-mysql tate=present
+  yum: name=zabbix-server-mysql state=present
 
 - name: install Software Collections
-  yum: name=centos-release-scl tate=present
+  yum: name=centos-release-scl state=present
 
 - name: install mariadb
-  yum: name=
+  yum: name=mariadb-server state=present
