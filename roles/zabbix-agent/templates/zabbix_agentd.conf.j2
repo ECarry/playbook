@@ -9,7 +9,6 @@
 # Mandatory: no
 # Default:
 # PidFile=/tmp/zabbix_agentd.pid
-
 PidFile={{ PidFile }}
 
 ### Option: LogType
@@ -28,7 +27,6 @@ PidFile={{ PidFile }}
 # Mandatory: yes, if LogType is set to file, otherwise no
 # Default:
 # LogFile=
-
 LogFile={{ LogFile }}
 
 ### Option: LogFileSize
@@ -39,7 +37,6 @@ LogFile={{ LogFile }}
 # Range: 0-1024
 # Default:
 # LogFileSize=1
-
 LogFileSize={{ LogFileSize }}
 
 ### Option: DebugLevel
@@ -113,7 +110,6 @@ LogFileSize={{ LogFileSize }}
 # Mandatory: yes, if StartAgents is not explicitly set to 0
 # Default:
 # Server=
-
 Server={{ Server }}
 
 ### Option: ListenPort
@@ -132,7 +128,7 @@ ListenPort={{ ListenPort }}
 # Mandatory: no
 # Default:
 # ListenIP=0.0.0.0
-ListenIP={{ ansible_all_ipv4_addresses }}
+ListenIP={{ ansible_default_ipv4['address'] }}
 
 ### Option: StartAgents
 #       Number of pre-forked instances of zabbix_agentd that process passive checks.
