@@ -1,0 +1,5 @@
+- name: stop firewalld
+  systemd: name=firewalld state=stopped enabled=no
+
+- name: set selinux
+  selinux: policy=targeted state=permissive

@@ -1,0 +1,5 @@
+- name: config zabbix repo from aliyun
+  copy: src=zabbix.repo dest=/etc/yum.repos.d/
+
+- name: install zabbix-agent
+  yum: name=zabbix-agent state=present

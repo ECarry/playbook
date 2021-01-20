@@ -1,9 +1,6 @@
 - name: config zabbix repo from aliyun
   copy: src=zabbix.repo dest=/etc/yum.repos.d/
 
-- name: yum clean
-  shell: yum clean all
-
 - name: install zabbix-server-mysql
   yum: name=zabbix-server-mysql state=present
 
@@ -15,6 +12,6 @@
 
 - name: install zabbix-apache-conf-scl
   yum: name=zabbix-apache-conf-scl state=present
-  
+
 - name: install mariadb
   yum: name=mariadb-server state=present

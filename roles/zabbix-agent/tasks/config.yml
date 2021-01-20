@@ -1,0 +1,4 @@
+- name: config zabbix_agent.conf from templates
+  template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix/
+  notify: restart zabbix agent
+  
