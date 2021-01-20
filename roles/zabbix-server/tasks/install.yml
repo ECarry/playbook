@@ -10,5 +10,11 @@
 - name: install Software Collections
   yum: name=centos-release-scl state=present
 
+- name: install zabbix frontend
+  yum: name=zabbix-web-mysql-scl state=present
+
+- name: install zabbix-apache-conf-scl
+  yum: name=zabbix-apache-conf-scl state=present
+  
 - name: install mariadb
   yum: name=mariadb-server state=present
