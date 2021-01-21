@@ -1,0 +1,7 @@
+- name: Configure the database for Zabbix server
+  template: src=zabbix_server.conf.j2 dest=/etc/zabbix/zabbix_server.conf
+  notify: restart zabbix server
+
+- name: Configure PHP for Zabbix frontend
+  template: src=zabbix.conf.j2 dest=/etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
+  

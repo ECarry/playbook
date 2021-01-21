@@ -1,3 +1,5 @@
 - include: initialization.yml
 - include: install.yml
 - include: mysql_config.yml
+- include: config.yml
+- include: start.yml

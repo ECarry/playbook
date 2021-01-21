@@ -1,0 +1,11 @@
+- name: Start Zabbix server
+  systemd: name=zabbix-server state=restarted enabled=yes
+
+- name: Start Zabbix agent processes
+  systemd: name=zabbix-agent state=restarted enabled=yes
+
+- name: Start httpd
+  systemd: name=httpd state=restarted enabled=yes
+
+- name: Start rh-php72-php-fpm
+  systemd: name=rh-php72-php-fpm state=restarted enabled=yes

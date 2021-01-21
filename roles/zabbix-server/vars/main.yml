@@ -1,0 +1,3 @@
+mariadb_passwd: password
+zabbix_passwd: password
+timezone: Asia/Shanghai

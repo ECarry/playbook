@@ -1,7 +1,10 @@
 - name: config zabbix repo from aliyun
   copy: src=zabbix.repo dest=/etc/yum.repos.d/
 
-- name: install zabbix-server-mysql
+- name: install zabbix server
+  yum: name=zabbix-server-mysql state=present
+
+- name: install zabbix agent
   yum: name=zabbix-server-mysql state=present
 
 - name: install Software Collections
