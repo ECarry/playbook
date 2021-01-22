@@ -8,7 +8,7 @@
   yum: name=zabbix-server-mysql state=present
 
 - name: install zabbix agent
-  yum: name=zabbix-server-mysql state=present
+  yum: name=zabbix-agent state=present
 
 - name: install Software Collections
   yum: name=centos-release-scl state=present
