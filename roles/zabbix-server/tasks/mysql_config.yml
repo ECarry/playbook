@@ -2,16 +2,13 @@
   systemd: name=mariadb state=started enabled=yes
 
 - name: set root password
-  shell: mysqladmin -u root password '{{ mariadb_passwd }}'
+  mysql_user: name=root password={{ mariadb_passwd }}
 
 - name: create zabbix database
-  shell: mysql -u root -p{{ mariadb_passwd }} -e 'create database zabbix character set utf8 collate utf8_bin'
+  mysql_db: login_user=root login_password={{ mariadb_passwd }} name=zabbix state=present encoding=utf8 collation=utf8_bin
 
 - name: create zabbix database user
-  shell: mysql -u root -p{{ mariadb_passwd }} -e 'create user zabbix@localhost identified by "{{ zabbix_passwd }}"'
-
-- name: grant all privileges on zabbix
-  shell: mysql -u root -p{{ mariadb_passwd }} -e 'grant all privileges on zabbix.* to zabbix@localhost'
+  mysql_user: login_user=root login_password=password name=zabbix password=zabbix state=present priv=`zabbix.*:ALL,GRANT'
 
 - name: import zabbix database
   shell: zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p{{ zabbix_passwd }} zabbix
