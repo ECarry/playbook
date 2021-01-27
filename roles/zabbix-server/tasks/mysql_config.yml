@@ -8,7 +8,7 @@
   mysql_db: login_user=root login_password={{ mariadb_passwd }} name=zabbix state=present encoding=utf8 collation=utf8_bin
 
 - name: create zabbix database user
-  mysql_user: login_user=root login_password=password name=zabbix password=zabbix state=present priv=`zabbix.*:ALL,GRANT'
+  mysql_user: login_user=root login_password=password name=zabbix password={{ zabbix_passwd }} state=present priv=zabbix.*:ALL,GRANT
 
 - name: import zabbix database
   shell: zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p{{ zabbix_passwd }} zabbix
