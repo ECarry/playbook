@@ -21,3 +21,9 @@
 
 - name: install mariadb
   yum: name=mariadb-server state=present
+
+- name: isntall python3
+  yum: name=python3 state=present
+
+- name: install PyMySQL
+  pip: name=PyMySQL state=present
