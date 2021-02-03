@@ -1,0 +1,2 @@
+- name: restart docker server
+  systemd: name=docker state=restarted
