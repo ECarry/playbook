@@ -11,7 +11,7 @@
   shell: yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
 - name: change repo aliyun
-  cp: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
+  copy: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
 
 - name: update packages
   shell: yum makecache fast
