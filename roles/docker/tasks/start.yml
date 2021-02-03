@@ -1,3 +1,2 @@
 - name: start docker
   systemd: name=docker state=restarted enabled=yes
-  
