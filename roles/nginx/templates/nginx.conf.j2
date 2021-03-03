@@ -6,7 +6,7 @@ user nginx;
 # 从 ansible setup 获取主机 CPU 信息
 worker_processes {{ ansible_processor_vcpus }};
 error_log /var/log/nginx/error.log;
-pid /run/nginx.pid;
+pid {{ PIDFile }};
 
 # Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
 include /usr/share/nginx/modules/*.conf;

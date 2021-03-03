@@ -19,5 +19,14 @@
 - name: install zabbix-apache-conf-scl
   yum: name=zabbix-apache-conf-scl state=present
 
+- name: install epel
+  yum: name=epel-release state=present
+
+- name: install python-PyMySQL
+  yum: name=python-PyMySQL state=present
+
+- name: install MySQL-python
+  yum: name=MySQL-python state=present
+
 - name: install mariadb
   yum: name=mariadb-server state=present
