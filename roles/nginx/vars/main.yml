@@ -1,2 +1,4 @@
 PIDFile: /run/nginx.pid
 installDir: /app/nginx
+USERID: nginx
+GROUPID: nginx

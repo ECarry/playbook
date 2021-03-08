@@ -1,4 +1,27 @@
-- name: install epel
-  yum: name=epel-release state=present
-- name: install nginx
-  yum: name=nginx state=present
+- name: install packages
+  shell: yum install -y epel-release && \
+         yum install -y gc gcc gcc-c++ \
+         pcre-devel zlib-devel wget \
+         openssl openssl-devel zlib-devel \
+         libxm12 libxm12-devel bzip2-devel libmcrypt-devel \
+         sqlite-devel glibc glibc-devel pcre pcre-devel \
+         systemd-devel net-tools iotop bc zip unzip zlib-devel bash-completion \
+         nfs-utils automake libxslt libxslt-devel
+
+- name: add group for nginx
+  group: name={{ GROUPID }} state=present system=yes
+
+- name: add user for nginx
+  user: name={{ USERID }} state=present system=yes
+
+- name: download nginx 
+  shell: wget http://pan.ecarry.cc/software/nginx-1.18.0.tar.gz -P ~/
+
+- name: copy auto_install script
+  copy: src=auto_install.sh dest=~/ mode=0700
+
+- name: auto install nginx 
+  shell: cd ~ && ./auto_install.sh
+
+- name: copy nginx.service
+  copy: src=nginx.service dest=/usr/lib/systemd/system/

@@ -1,0 +1,20 @@
+[Unit]
+Description=nginx 1.18.0
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+
+ExecStartPre=/usr/bin/rm -f /run/nginx.pid
+ExecStartPre=/app/nginx/sbin/nginx -t
+ExecStart=/app/nginx/sbin/nginx
+ExecReload=/bin/kill -s HUP $MAINPID
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+
+KillMode=process
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
