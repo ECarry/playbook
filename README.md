@@ -54,3 +54,22 @@ ansible 2.9.16
 
 2. 修改 `zabbix_server/agent_install.yml` hosts 项
 3. 执行 `ansible-playbook zabbix_server_install.yml`
+
+## nginx
+
+1. 修改自定义参数 `/roles/nginx/vars/main.yml`：
+
+- PIDFile: /run/nginx.pid
+- installDir: /app/nginx
+- USERID: nginx
+- GROUPID: nginx
+
+2. 修改主机配置文件，`/etc/ansible/hosts`，添加需要安装的主机：
+
+```
+[nginx]
+192.168.1.1
+```
+
+3. 修改 `nginx_role.yml` hosts：nginx
+4. 开始安装 `ansible-playbook nginx_role.yml`

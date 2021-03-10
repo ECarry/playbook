@@ -3,7 +3,7 @@
          yum install -y gc gcc gcc-c++ \
          pcre-devel zlib-devel wget \
          openssl openssl-devel zlib-devel \
-         libxm12 libxm12-devel bzip2-devel libmcrypt-devel \
+         libxml2 libxml2-devel bzip2-devel libmcrypt-devel \
          sqlite-devel glibc glibc-devel pcre pcre-devel \
          systemd-devel net-tools iotop bc zip unzip zlib-devel bash-completion \
          nfs-utils automake libxslt libxslt-devel
@@ -12,10 +12,10 @@
   group: name={{ GROUPID }} state=present system=yes
 
 - name: add user for nginx
-  user: name={{ USERID }} state=present system=yes
+  user: name={{ USERID }} state=present system=yes group=nginx
 
 - name: download nginx 
-  shell: wget http://pan.ecarry.cc/software/nginx-1.18.0.tar.gz -P ~/
+  get_url: url=http://pan.ecarry.cc/software/nginx-1.18.0.tar.gz dest=~/
 
 - name: copy auto_install script
   copy: src=auto_install.sh dest=~/ mode=0700
