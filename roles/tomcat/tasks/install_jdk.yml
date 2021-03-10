@@ -1,0 +1,11 @@
+- name: download jdk8
+  get_url: url=http://pan.ecarry.cc/software/jdk-8u281-linux-x64.rpm dest=~/
+
+- name: install jdk8
+  shell: yum localinstall -y ~/jdk-8u281-linux-x64.rpm
+
+- name: set $JAVA_HOME
+  copy: src=jdk.sh dest=/etc/profile.d/
+
+- name: jdk.sh
+  shell: . /etc/profile.d/jdk.sh

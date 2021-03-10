@@ -1,2 +1,2 @@
----
-# tasks file for roles/tomcat
+- include: install_jdk.yml
+- include: install_tomcat.yml
