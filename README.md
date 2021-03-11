@@ -40,7 +40,7 @@ ansible 2.9.16
 
 # 使用
 
-## zabbix
+## zabbix-server
 
 1. 修改主机配置文件，`/etc/ansible/hosts`，添加需要安装的主机：
 
@@ -54,6 +54,16 @@ ansible 2.9.16
 
 2. 修改 `zabbix_server/agent_install.yml` hosts 项
 3. 执行 `ansible-playbook zabbix_server_install.yml`
+
+## zabbix-agent
+
+安装前配置 `roles/zabbix-agent/vars/main.yml`
+
+```yml
+# 配置服务端 IP
+Server: 192.168.1.1
+ServerActive: 192.168.1.1
+```
 
 ## nginx
 
