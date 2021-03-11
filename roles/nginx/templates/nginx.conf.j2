@@ -53,6 +53,9 @@ http {
             root   html;
         }
 
+        location = /basic_status {
+            stub_status;
+        }
         # proxy the PHP scripts to Apache listening on 127.0.0.1:80
         #
         #location ~ \.php$ {
