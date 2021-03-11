@@ -2,7 +2,7 @@
   get_url: url=http://pan.ecarry.cc/software/apache-tomcat-8.5.63.tar.gz dest=/usr/local/
 
 - name: unzip tomcat
-  shell: tar -zxf /usr/local/apache-tomcat-8.5.63.tar.gz
+  unarchive: copy=no src=/usr/local/apache-tomcat-8.5.63.tar.gz dest=/usr/local/
 
 - name: create symbolic link
   shell: ln -s /usr/local/apache-tomcat-8.5.63 /usr/local/tomcat
