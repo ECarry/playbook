@@ -1,0 +1,5 @@
+[mysql]
+name=MySQL
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/mysql/yum/mysql-8.0-community-el7-x86_64/
+gpgcheck=0
+enabled=1
