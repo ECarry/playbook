@@ -1,0 +1,46 @@
+---
+- name: install epel-release
+  yum: name=epel-release state=present
+
+- name: install packages
+  yum:
+    name: "{{item}}"
+    state: present
+  loop:
+    - net-tools
+    - vim
+    - bash-completion
+    - wget
+    - curl
+    - gc
+    - gcc
+    - gcc-c++
+    - pcre 
+    - pcre-devel 
+    - zlib-devel
+    - openssl 
+    - openssl-devel 
+    - libxml2 
+    - libxml2-devel 
+    - bzip2-devel 
+    - libmcrypt-devel 
+    - sqlite-devel 
+    - glibc 
+    - glibc-devel  
+    - systemd-devel 
+    - net-tools 
+    - iotop 
+    - bc 
+    - zip 
+    - unzip 
+    - nfs-utils 
+    - automake 
+    - libxslt 
+    - libxslt-devel
+    - libpng-devel
+    - freetype 
+    - freetype-devel
+    - libjpeg
+    - libjpeg-devel
+    - libpng-devel
+    

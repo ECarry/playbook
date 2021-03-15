@@ -1,0 +1,18 @@
+- name: copy php-fpm.service
+  copy: remote_src=/tmp/php-7.4.15/sapi/fpm/php-fpm.service dest=/usr/lib/systemd/system/php-fpm.service
+
+- name: copy php.ini
+  copy: remote_src=/tmp/php-7.4.15/php.ini-production dest=/etc/php.ini
+
+- name: copy php-fpm.conf
+  copy: src=php-fpm.conf dest=/app/php/etc/php-fpm.conf
+  notify: "reload php-fpm"
+
+- name: copy www.conf
+  name: src=www.conf dest=/app/php/etc/www.conf
+  notify: "reload php-fpm"
+
+- name: restart php-fpm
+  service:
+    name: php-fpm
+    state: reloaded

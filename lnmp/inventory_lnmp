@@ -1,0 +1,13 @@
+[nginx]
+192.168.8.125
+
+[php]
+192.168.8.124
+
+[mysql]
+192.168.8.123
+
+[lnmp:children]
+nginx
+php
+mysql

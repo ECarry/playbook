@@ -1,0 +1,6 @@
+---
+- name: lnmp deploy
+  hosts: lnmp
+  gather_facts: false
+  roles:
+    - role: 

@@ -3,9 +3,3 @@
 
 - name: install jdk8
   yum: name=/tmp/jdk-8u281-linux-x64.rpm state=present
-
-- name: set $JAVA_HOME
-  copy: src=jdk.sh dest=/etc/profile.d/
-
-- name: jdk.sh
-  shell: . /etc/profile.d/jdk.sh

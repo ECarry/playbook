@@ -1,0 +1,27 @@
+- name: render mysql config
+  template:
+    src: mysql.conf.j2
+    dest: /etc/my.conf
+  notify: restart mysql
+
+- name: create mysql datadir
+  file:
+    name: "{{ mysql.mysqld.datadir }}"
+    state: directory
+    owner: mysql
+    group: mysql
+
+- block:
+    - name: get initialize temp password
+      shell: |
+        sed -rn '/temp.*pass/s/^.*root@localhost: (.*)$/\1/p' {{mysql.mysqld.log_error}}
+      register: tmp_passwd
+
+    - name: modify root@localhost password before any op
+      shell: |
+        mysql -uroot -p'{{tmp_passwd.stdout}}' \
+        --connect-expired-password \
+        -NBe \
+        'ALTER USER "root"@"localhost" identified by "{{mysql.mysql_passwd}}";'
+  tags: 
+    - never

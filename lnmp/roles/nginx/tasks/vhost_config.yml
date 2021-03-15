@@ -1,0 +1,16 @@
+- name: create conf.d dir
+  file:
+    name: /app/nginx/conf/conf.d
+    state: directory
+  when: ansible_loop.first
+
+- name: reder and copy vhost config
+  template:
+    src: vhost.conf
+    dest: "/app/nginx/conf/conf.d/{{ item.key }}.conf"
+  notify: "reload nginx"
+
+- name: create dir on nginx
+  file:
+    name: "/app/nginx/html/{{ item.key }}"
+    state: directory

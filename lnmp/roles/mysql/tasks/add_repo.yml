@@ -1,0 +1,2 @@
+- name: add yum repo for mysql
+  copy: src=mysql.repo dest=/etc/yum.repos.d/mysql.repo

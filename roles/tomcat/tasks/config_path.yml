@@ -1,0 +1,11 @@
+- name: copy jdk.sh
+  copy: src=jdk.sh dest=/etc/profile.d/
+
+- name: set JAVA_HOME
+  shell: /bin/bash /etc/profile.d/jdk.sh
+
+- name: copy tomcat.sh
+  copy: src=tomcat.sh dest=/etc/profile.d/
+
+- name: set CATALINA
+  shell: /bin/bash /etc/profile.d/tomcat.sh

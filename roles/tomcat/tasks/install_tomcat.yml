@@ -6,9 +6,3 @@
 
 - name: create symbolic link
   shell: ln -s /usr/local/apache-tomcat-8.5.63 /usr/local/tomcat
-
-- name: set $CATALINA
-  copy: src=tomcat.sh dest=/etc/profile.d/
-
-- name: tomcat.sh
-  shell: . /etc/profile.d/tomcat.sh

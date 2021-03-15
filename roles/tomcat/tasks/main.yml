@@ -1,2 +1,3 @@
 - include: install_jdk.yml
 - include: install_tomcat.yml
+- include: config_path.yml

@@ -1,0 +1,18 @@
+---
+- name: add group for nginx
+  group: name={{ GROUPID }} state=present system=yes
+
+- name: add user for nginx
+  user: name={{ USERID }} state=present system=yes group=nginx
+
+- name: download nginx 
+  get_url: url=http://pan.ecarry.cc/software/nginx-1.18.0.tar.gz dest=/tmp
+
+- name: copy auto_install script
+  copy: src=auto_install.sh dest=/tmp mode=0700
+
+- name: auto install nginx 
+  shell: /bin/bash /tmp/auto_install.sh
+
+- name: copy nginx.service
+  copy: src=nginx.service dest=/usr/lib/systemd/system/

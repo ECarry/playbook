@@ -1,0 +1,9 @@
+---
+- name: download php.tar.gz
+  url: name=http://pan.ecarry.cc/software/php-7.4.15.tar.gz dest=/tmp
+
+- name: copy auto_install script
+  copy: src=auto_install.sh dest=/tmp mode=0700
+
+- name: auto install nginx 
+  shell: /bin/bash /tmp/auto_install.sh  

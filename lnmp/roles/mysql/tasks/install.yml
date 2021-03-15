@@ -1,0 +1,9 @@
+- name: install mysql8.0
+  yum:
+    name: "{{ item }}"
+    state: installed
+  loop:
+    - mysql-community-server
+    - mysql-community-client
+    - python-PyMySQL
+    - MySQL-python

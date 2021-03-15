@@ -1,0 +1,39 @@
+---
+# vars file for nginx
+GROUPID: "nginx"
+USERID: "nginx"
+worker_rlimit_nofile: 65535
+worker_connections: 10240
+multis_accept: "on"
+send_file: "on"
+tcp_nopush: "on"
+tcp_nodelay: "on"
+keepalive_timeout: 65
+server_tokens: "off"
+gzip: "on"
+gzip_min_length: 1024
+# 1. You should assign a list to gzip_types, if you don't
+#    want to usr this variable. set it to an empty list,
+#    such as "gzip_types: [];".
+# 2. There is no need to add "text/html" type for gzip_types,
+#    gzip will always include "text/html".
+gzip_types:
+  - text/plain
+  - text/css
+  - text/javascript
+  - application/x-javascript
+  - application/xml
+  - image/jpeg
+  - image/jpg
+  - image/gif
+  - image/png
+
+vhosts:
+  server1:
+    server_name: www.server1.com
+    listen: 80
+    fastcgi_pass: "{{ groups.php[0] }}:9000"
+  server2:
+    server_name: www.server2.com
+    listen: 80
+    fastcgi_pass: "{{ groups.php[0] }}:9000"

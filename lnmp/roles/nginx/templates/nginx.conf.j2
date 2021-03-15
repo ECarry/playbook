@@ -1,0 +1,34 @@
+
+user  {{ USERID }};
+worker_processes  {{ ansible_processor_vcpus }};
+
+error_log  /var/log/error.log warn;
+pid        /run/nginx.pid;
+
+worker_rlimit_nofile {{ worker_rlimit_nofile }};
+
+events {
+    worker_connections  {{ worker_connections }};
+    multis_accept {{ multis_accept }};
+}
+
+
+http {
+    access_log  /var/log/access.log;
+
+    sendfile       {{ send_file }};
+    tcp_nopush     {{ tcp_nopush }};
+    tcp_nodelay    {{ tcp_nodelay }}；
+
+    keepalive_timeout  {{ keepalive_timeout }};
+    server_tokens {{ server_tokens }} ;
+    include /app/nginx/conf/mime.types;
+
+    gzip  {{ gzip }};
+    gzip_types {{ gzip_types|join('') if gzip_types is defined and  gzip_types and (gzip_types|length > 0) else 'text/plain' }};
+    gzip_min_length {{ gzip_min_length }};
+    gzip_disable "msie6";
+
+    include /app/nginx/conf/conf.d/*.conf；
+
+}

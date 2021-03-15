@@ -1,5 +1,5 @@
 - name: create dir /etc/docker
-  shell: mkdir -p /etc/docker
+  file: name=docker dest=/etc/ state=directory
 
 - name: add speed up file
   template: src=daemon.json.j2 dest=/etc/docker/daemon.json.j2
