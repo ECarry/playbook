@@ -3,6 +3,7 @@
     name: "{{ item }}"
     state: installed
   loop:
+    - epel-release
     - mysql-community-server
     - mysql-community-client
     - python-PyMySQL

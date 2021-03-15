@@ -1,7 +1,7 @@
 - name: render mysql config
   template:
     src: mysql.conf.j2
-    dest: /etc/my.conf
+    dest: /etc/my.cnf
   notify: restart mysql
 
 - name: create mysql datadir
