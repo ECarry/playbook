@@ -1,7 +1,7 @@
 ---
 # tasks file for mysql
 - name: add repo for mysql
-  import_tasks: add_repo/yml
+  import_tasks: add_repo.yml
 
 - name: install mysql
   import_tasks: install.yml
