@@ -2,5 +2,5 @@
   file: name=docker dest=/etc/ state=directory
 
 - name: add speed up file
-  template: src=daemon.json.j2 dest=/etc/docker/daemon.json.j2
+  template: src=daemon.json.j2 dest=/etc/docker/daemon.json
   notify: restart docker server
