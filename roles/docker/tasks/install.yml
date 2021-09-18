@@ -8,7 +8,7 @@
   yum: name=lvm2 state=present 
 
 - name: add repo
-  shell: yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+  yum: name=https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo state=present
 
 - name: change repo aliyun
   copy: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
